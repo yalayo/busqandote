@@ -1,8 +1,8 @@
 {:dependencies
- [[reagent "0.8.0-alpha2"]]
+ [[reagent "0.9.1"]]
 
  :source-paths
- ["src"]
+ ["src/main" "src/test"]
 
  :builds
  {:app {:target :browser

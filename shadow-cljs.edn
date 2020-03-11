@@ -1,11 +1,12 @@
 {:dependencies
- [[reagent "0.9.1"]]
+ [[reagent "0.10.0"]]
 
  :source-paths
  ["src/main" "src/test"]
 
+ :dev-http {8080 "public/"}
  :builds
  {:app {:target :browser
         :output-dir "public/js"
         :asset-path "/js"
-        :modules {:main {:entries [my.app]}}}}}
+        :modules {:main {:entries [com.busqandote.app]}}}}}

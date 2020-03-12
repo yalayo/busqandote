@@ -1,0 +1,1 @@
+{"app":"clojure -m stedi.cdk.main synth"}

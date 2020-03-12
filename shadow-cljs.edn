@@ -9,4 +9,8 @@
  {:app {:target :browser
         :output-dir "public/js"
         :asset-path "/js"
-        :modules {:main {:entries [com.busqandote.app]}}}}}
+        :modules {:main {:entries [com.busqandote.app]}}}
+ :lambda {:target :node-library
+          :exports {:handler com.busqandote.app/handler}
+          :output-dir "target"
+          :output-to "target/main.js"}}}

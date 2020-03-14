@@ -3,3 +3,7 @@ node_modules/
 package-lock.json
 public/js/*
 target/
+.cpcache/
+build/
+cdk.out/
+yarn.lock

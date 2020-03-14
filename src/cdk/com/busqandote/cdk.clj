@@ -10,12 +10,7 @@
             [[LambdaRestApi] :from "@aws-cdk/aws-apigateway"])
 
 (def code
-  (let [jarpath "target/app.jar"
-        deps    (edn/read-string (slurp "deps.edn"))]
-    (with-out-str
-      (io/make-parents "target/.")
-      (io/make-parents jarpath)
-      (uberdeps/package deps jarpath {:aliases [:target]}))
+  (let [jarpath "build/lambda.zip"]
     (Code/fromAsset jarpath)))
 
 (def app (App))
@@ -26,15 +21,15 @@
 
 (def busqandote-web-fn
   (Function stack
-            "busqandote-web-fn"
+            "busqandote-fn"
             {:code        code
-             :handler     "com.busqandote.app/handler"
+             :handler     "main.handler"
              :runtime     (:NODEJS_10_X Runtime)
              :environment {"BUCKET" (:bucketName bucket)}
              :memorySize 128
              :timeout (Duration/seconds 10)
              }))
 
-(Bucket/grantWrite bucket register-agent-fn)
+(Bucket/grantWrite bucket busqandote-web-fn)
 
 (def api (LambdaRestApi stack "busqandote-web" {:handler busqandote-web-fn}))

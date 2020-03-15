@@ -3,10 +3,6 @@ const WebpackZipPlugin = require('webpack-zip-plugin');
 
 module.exports = {
     entry: './target/main.js',
-    output: {
-      filename: 'main.js',
-      path: path.resolve(__dirname, 'build')
-    },
     module: {
         rules: [
           {
@@ -17,10 +13,9 @@ module.exports = {
       plugins: [
         new WebpackZipPlugin({
             frontShell: 'pwd',
-            initialFile: 'build',
+            initialFile: 'target',
             endPath: './',
-            zipName: 'lambda.zip',
-            behindShell: 'scp lambda.zip ./build'
+            zipName: 'lambda.zip'
         })
       ]
 };

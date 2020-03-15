@@ -7,3 +7,5 @@ target/
 build/
 cdk.out/
 yarn.lock
+lambda.zip
+dist/

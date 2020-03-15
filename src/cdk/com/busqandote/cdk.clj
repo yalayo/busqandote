@@ -10,7 +10,7 @@
             [[LambdaRestApi] :from "@aws-cdk/aws-apigateway"])
 
 (def code
-  (let [jarpath "build/lambda.zip"]
+  (let [jarpath "lambda.zip"]
     (Code/fromAsset jarpath)))
 
 (def app (App))
@@ -23,7 +23,7 @@
   (Function stack
             "busqandote-fn"
             {:code        code
-             :handler     "main.handler"
+             :handler     "target/main.handler"
              :runtime     (:NODEJS_10_X Runtime)
              :environment {"BUCKET" (:bucketName bucket)}
              :memorySize 128

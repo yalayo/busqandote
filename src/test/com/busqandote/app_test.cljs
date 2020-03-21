@@ -30,4 +30,7 @@
 (deftest test-numbers
   (is (= 1 1)))
 
-(cljs.test/run-tests)
+(run-tests)
+
+(js/React.createElement
+ "div" #js {})

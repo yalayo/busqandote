@@ -9,3 +9,4 @@ cdk.out/
 yarn.lock
 lambda.zip
 dist/
+resources/

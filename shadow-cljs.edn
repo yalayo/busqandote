@@ -1,5 +1,8 @@
 {:dependencies
- [[reagent "0.10.0"]]
+ [[reagent "0.10.0"]
+  [cljs-react-test "0.1.4-SNAPSHOT"]
+  [cljsjs/react-with-addons "15.6.1-0"]
+  [prismatic/dommy "1.1.0"]]
 
  :source-paths
  ["src/main" "src/test"]
